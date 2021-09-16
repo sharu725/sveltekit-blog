@@ -1,18 +1,12 @@
 <script context="module">
   export const load = async ({ page, fetch }) => {
     const id = page.params.authorId;
+    const res = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${id}?_embed=posts`
+    );
 
-    const [resUser, resPosts] = await Promise.all([
-      fetch(`https://jsonplaceholder.typicode.com/users/${id}`),
-      fetch("https://jsonplaceholder.typicode.com/posts"),
-    ]);
-
-    const user = await resUser.json();
-    const allPosts = await resPosts.json();
-
-    const posts = allPosts.filter((post) => {
-      return post.userId === user.id;
-    });
+    const user = await res.json();
+    const posts = user.posts;
 
     return {
       props: {

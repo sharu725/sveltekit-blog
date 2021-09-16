@@ -1,13 +1,11 @@
 <script context="module">
   export const load = async ({ page, fetch }) => {
     const id = page.params.id;
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-    const post = await res.json();
-
-    const userRes = await fetch(
-      `https://jsonplaceholder.typicode.com/users/${post.userId}`
+    const res = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${id}?_expand=user`
     );
-    const user = await userRes.json();
+    const post = await res.json();
+    const user = post.user;
     return {
       props: {
         post,
