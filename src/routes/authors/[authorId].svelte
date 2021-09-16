@@ -30,7 +30,7 @@
 <ul>
   {#each posts as item}
     <li>
-      <a href={`/blog/${item.id}`}>{item.title}</a>
+      <a sveltekit:prefetch href={`/blog/${item.id}`}>{item.title}</a>
     </li>
   {/each}
 </ul>
