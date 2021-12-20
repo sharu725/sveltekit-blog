@@ -1,9 +1,7 @@
 <script context="module">
   export const load = async ({ page, fetch }) => {
     const id = page.params.authorId;
-    const res = await fetch(
-      `https://jsonplaceholder.typicode.com/users/${id}?_embed=posts`
-    );
+    const res = await fetch(`/api/authors/${id}.json`);
 
     const user = await res.json();
     const posts = user.posts;
