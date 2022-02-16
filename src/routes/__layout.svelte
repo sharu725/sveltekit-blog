@@ -4,6 +4,9 @@
       <li>
         <a href="/">Home</a>
       </li>
+      <li>
+        <a href="https://webjeda.com/courses/sveltekit-simple-blog">Tutorial</a>
+      </li>
     </ul>
   </nav>
   <slot />
