@@ -17,6 +17,14 @@
   $: searchedPosts = posts.filter((post) => {
     return post.title.includes(searchTerm) || post.body.includes(searchTerm);
   });
+
+  $: items = searchedPosts.slice(0, perPage);
+
+  let currentPage = 1;
+  let perPage = 10;
+  let pages = posts.length / perPage;
+  $: items = posts.slice(perPage * (currentPage - 1), perPage * currentPage);
+
 </script>
 
 <h1>Posts</h1>
@@ -24,8 +32,8 @@
 <input type="text" placeholder="search" bind:value={searchTerm} />
 
 <div class="posts">
-  {#if searchedPosts.length}
-    {#each searchedPosts as item}
+  {#if posts.length}
+    {#each items as item}
       <div class="post">
         <h2>{item.title.substring(0, 20)}</h2>
         <p>{item.body.substring(0, 80)}</p>
@@ -38,6 +46,14 @@
     <p>No posts found with "{searchTerm}"</p>
   {/if}
 </div>
+
+{#if currentPage != 1}
+  <button on:click={() => (currentPage -= 1)}>Previous</button>
+{/if}
+
+{#if currentPage != pages}
+  <button on:click={() => (currentPage += 1)}>Next</button>
+{/if}
 
 <style>
   .posts {
