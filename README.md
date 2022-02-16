@@ -1,38 +1,13 @@
-# create-svelte
+# A simple Sveltekit blog
+We are creating a simple blog from a free API.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+In this series we will figure out many sveltekit basics. [Watch the series here](https://webjeda.com/courses/sveltekit-simple-blog)
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte@next
-
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
-
-```bash
-npm run build
-```
-
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+## Tocpics Covered
+- Create a Simple Sveltekit blog
+- Get User Information from API
+- How to add blog authors
+- How to add Pagination & Search in Sveltekit
+- Fixing inefficiencies in out Sveltekit Blog
+- How to deploy Sveltekit Blog to Netlify
+- Sveltekit Blog using Sveltekit APIs(Endpoints)
